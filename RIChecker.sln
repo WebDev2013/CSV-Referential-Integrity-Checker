@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RIChecker", "RIChecker\RIChecker.csproj", "{95E31AFB-C1E7-436B-8B59-89BA19CF596A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiChecker.Test", "TestRiChecker\RiChecker.Test.csproj", "{DBE55046-5175-4D48-9BFA-C035E1B555ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JasmineExtensions", "JasmineExtensions\JasmineExtensions.csproj", "{9C3F4885-E9EC-4787-9916-DA3FFDCEB3D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiChecker.Test.SampleUsages", "RiChecker.IntegrationTests\RiChecker.Test.SampleUsages.csproj", "{D33D3A73-6C08-44B6-A47F-81C8609B3A55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95E31AFB-C1E7-436B-8B59-89BA19CF596A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E31AFB-C1E7-436B-8B59-89BA19CF596A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E31AFB-C1E7-436B-8B59-89BA19CF596A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E31AFB-C1E7-436B-8B59-89BA19CF596A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE55046-5175-4D48-9BFA-C035E1B555ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE55046-5175-4D48-9BFA-C035E1B555ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE55046-5175-4D48-9BFA-C035E1B555ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE55046-5175-4D48-9BFA-C035E1B555ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C3F4885-E9EC-4787-9916-DA3FFDCEB3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C3F4885-E9EC-4787-9916-DA3FFDCEB3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C3F4885-E9EC-4787-9916-DA3FFDCEB3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C3F4885-E9EC-4787-9916-DA3FFDCEB3D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D33D3A73-6C08-44B6-A47F-81C8609B3A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D33D3A73-6C08-44B6-A47F-81C8609B3A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D33D3A73-6C08-44B6-A47F-81C8609B3A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D33D3A73-6C08-44B6-A47F-81C8609B3A55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

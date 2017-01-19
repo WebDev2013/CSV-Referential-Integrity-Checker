@@ -1,0 +1,17 @@
+﻿{
+  "ConfigSetToUse":  "Production",
+
+  "Development": {
+    "ExtractsFolder": "path/to/development/extracts",
+    "KeysFolder": "path/to/development/keys",
+    "ResultsFolder": "path/to/development/results",
+    "SampleSize": "0"
+  },
+
+  "Production": {
+    "ExtractsFolder": "path/to/production/extracts",
+    "KeysFolder": "path/to/production/keys",
+    "ResultsFolder": "path/to/production/results",
+    "SampleSize": "5"
+  }
+}
