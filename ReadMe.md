@@ -80,10 +80,3 @@ var relations = builder
       .KeySelector("PatientId:PregnancyId")
       .ChildSchema("MaternityPregnancyComplications")
 ```  
-
-Note, for succinctness
-- Relations are grouped by parent and key selector.
-- 2nd and 3rd calls to fluid method **AddRelations()** builds the previous group and resets the builder.
-- Once called, schemas are cached and can be called the second time using name only.
-- Common child parsers can be defined once at the head of the child schema list.
-  
