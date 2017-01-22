@@ -78,5 +78,9 @@ var relations = builder
           .ParentSchema("MaternityCurrent")
           .ParentSchema("MaternityPrevious")
       .KeySelector("PatientId:PregnancyId")
-      .ChildSchema("MaternityPregnancyComplications")
+      .ChildSchema("MaternityPregnancyComplications");  
+
+  // The builder call ends with the semi-colon on the line above,
+  // and a static implicit conversion operator converts it to a list of relations.
+  
 ```  
