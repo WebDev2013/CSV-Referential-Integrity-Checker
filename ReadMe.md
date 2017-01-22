@@ -38,4 +38,45 @@ The API for RiChecker includes the following components:
   A Relation defines the relationship between one (or more) parent schema and one (or more) child schema. Relations are added to the Relations collection in groups for better reporting. A Relation Group will share a common KeySelector.
 
   5. **Config**  
-  The Config object defines the paths to the files to be tested, and the current version tags. Any config items that are relatively stable can be saved to a config.json file (in the same folder as RiChecker.dll).
+  The Config object defines the paths to the files to be tested, and the current version tags. Any config items that are relatively stable can be saved to a config.json file (in the same folder as RiChecker.dll).  
+
+## Fluid API ##
+To make it easier to compose the relations, a builder provides a fluid API.  
+For example,   
+```
+var builder = new RelationsBuilder();
+var relations = builder
+  
+  // All maternity files must be checked against the Patient record
+  // so here we define 5 relations in a hierarchy and give them a group title.
+  .AddRelations("Maternity records vs Patient record")
+      .ParentSchema("PatientRecord", parser: r => new { PatientId = r[0] })
+      .KeySelector("PatientId", x => x.PatientId)
+          // The following line defines the parser common to all children
+          .ChildParser(r => new { PatientId = r[0], PregnancyId = r[1] })
+          .ChildSchema("MaternityCurrent")
+          .ChildSchema("MaternityPrevious")
+          .ChildSchema("MaternityBabies")
+          .ChildSchema("MaternityPregnancyComplications")
+          .ChildSchema("MaternityDeliveryComplications")
+
+  .AddRelations("Previous maternity associated records")
+      .ParentSchema("MaternityPrevious")
+      .KeySelector("PatientId:PregnancyId", x => $"{x.PatientId}:{x.PregnancyId}")
+          .ChildSchema("MaternityBabies")
+          .ChildSchema("MaternityDeliveryComplications")
+
+  .AddRelations("Antenatal complications for all records")
+      .MultiParentSchema("AllPregnancies")
+          .ParentSchema("MaternityCurrent")
+          .ParentSchema("MaternityPrevious")
+      .KeySelector("PatientId:PregnancyId")
+      .ChildSchema("MaternityPregnancyComplications")
+```  
+
+Note, for succinctness
+- Relations are grouped by parent and key selector.
+- 2nd and 3rd calls to fluid method **AddRelations()** builds the previous group and resets the builder.
+- Once called, schemas are cached and can be called the second time using name only.
+- Common child parsers can be defined once at the head of the child schema list.
+  
