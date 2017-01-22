@@ -61,12 +61,18 @@ var relations = builder
           .ChildSchema("MaternityPregnancyComplications")
           .ChildSchema("MaternityDeliveryComplications")
 
+  // This group checks child/grandchild relation, so keys are two-part
+  // The schemas have been used before, so we only need to refer to them by name
+  
   .AddRelations("Previous maternity associated records")
       .ParentSchema("MaternityPrevious")
       .KeySelector("PatientId:PregnancyId", x => $"{x.PatientId}:{x.PregnancyId}")
           .ChildSchema("MaternityBabies")
           .ChildSchema("MaternityDeliveryComplications")
 
+  // This group has a multi-parent relation, i.e the child key must exist in EITHER parent1 or parent2
+  // (i.e a pregnancy complication can be for a current or a previous maternity record).
+  
   .AddRelations("Antenatal complications for all records")
       .MultiParentSchema("AllPregnancies")
           .ParentSchema("MaternityCurrent")
