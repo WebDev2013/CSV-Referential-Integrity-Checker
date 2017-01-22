@@ -43,12 +43,13 @@ The API for RiChecker includes the following components:
 ## Fluid API ##
 To make it easier to compose the relations, a builder provides a fluid API.  
 For example,   
-```
+```C#
 var builder = new RelationsBuilder();
 var relations = builder
   
   // All maternity files must be checked against the Patient record
   // so here we define 5 relations in a hierarchy and give them a group title.
+  
   .AddRelations("Maternity records vs Patient record")
       .ParentSchema("PatientRecord", parser: r => new { PatientId = r[0] })
       .KeySelector("PatientId", x => x.PatientId)
